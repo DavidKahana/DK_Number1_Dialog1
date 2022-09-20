@@ -1,0 +1,14 @@
+package first_Project;
+
+public class Mission1
+{
+	public static void main(String[]args);
+	
+char tav1 ='a', tav2 = 'b';
+system.out.println(tav1+tav2);
+
+
+
+
+}
+

@@ -1,0 +1,15 @@
+package first_Project;
+import java.util.Scanner;
+public class Exsting {
+	public static Scanner in = new Scanner (System.in);
+	public static void main(String[] args) 
+	{
+    String name;
+    System.out.println(" whats your name?");
+    name = in.next();
+	
+	
+	
+	
+	}
+}

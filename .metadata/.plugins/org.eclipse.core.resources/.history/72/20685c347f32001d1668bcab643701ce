@@ -1,0 +1,26 @@
+package first_Project;
+import java.util.Scanner;
+public class class3 
+{     
+	public static void main(String[]args)
+	{
+	Scanner in = new Scanner (System.in);
+	String name;
+	System.out.println("whats your name?");
+	name = in.next();
+	System.out.println("hallo "+ name);
+	System.out.println("what is your age " + name);
+	int age;
+	age = 15;
+	
+	
+	
+	
+	
+	
+	
+	
+	}
+	
+
+}

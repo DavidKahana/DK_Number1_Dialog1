@@ -1,0 +1,14 @@
+package first_Project;
+import java.util.Scanner;
+public class Mission1
+{
+	public static void main(String[]args);
+	Scanner in = new Scanner (System.in);
+char tav1 ='a', tav2 = 'b'
+system.out.println(tav1+tav2)
+
+
+
+
+}
+

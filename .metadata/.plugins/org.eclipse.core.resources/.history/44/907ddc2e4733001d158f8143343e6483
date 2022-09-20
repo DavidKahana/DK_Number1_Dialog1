@@ -1,0 +1,30 @@
+package first_Project;
+import java.util.Scanner;
+public class class3 
+{     
+	public static void main(String[]args)
+	{
+		Scanner in = new Scanner (System.in);
+		String name;
+		int ageNum;
+		Double weight;
+		char firstLetter;
+		System.out.println("whats your name?");
+		name = in.next();
+		System.out.println("hallo "+ name);
+		System.out.println("what is your age ");
+		ageNum = in.nextInt();
+		System.out.println("how much do you weight?");
+		weight = in.nextDouble();
+		System.out.println("what is your first latter?");
+        first letter = in.nextchar();
+
+
+
+
+
+
+	}
+
+
+}
