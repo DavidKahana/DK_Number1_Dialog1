@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     RadioGroup rg;
     Dialog d;
     Button btnDate , btnGender , btnConfirm , btnSave;
-    EditText etfn , etln , city , sa;
+    EditText etfn , etln , city;
 
     boolean male;
     @Override
