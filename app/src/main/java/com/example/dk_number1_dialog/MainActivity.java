@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         sp=getSharedPreferences("details1",0);
 
 
-        String strfn11 = sp.getString("fname" , null);
+        String strfn111 = sp.getString("fname" , null);
         String strln = sp.getString("lname" , null);
         String strcity = sp.getString("city" , null);
 
