@@ -2,8 +2,11 @@ package com.example.dk_number1_dialog;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,7 +22,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     RadioGroup rg;
     Dialog d;
     Button btnDate , btnGender , btnConfirm , btnSave;
-    EditText etfn , etln , city;
+    EditText etfn , etln , etcity;
+
+    SharedPreferences sp;
+
 
     boolean male;
     @Override
@@ -30,18 +36,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnDate = (Button) findViewById(R.id.btnDate);
         btnGender = (Button)findViewById(R.id.btnGender);
-        btnSave = (Button)findViewById(R.id.btnGender);
+        btnSave = (Button)findViewById(R.id.btnSave);
 
 
 
         etfn = (EditText) findViewById(R.id.etfn);
         etln = (EditText) findViewById(R.id.etln);
-        city = (EditText) findViewById(R.id.city);
+        etcity = (EditText) findViewById(R.id.city);
 
         btnDate.setOnClickListener(this);
         btnGender.setOnClickListener(this);
         btnSave.setOnClickListener(this);
 
+        sp=getSharedPreferences("details1",0);
+
+
+        String strfn = sp.getString("fname" , null);
+        String strln = sp.getString("lname" , null);
+        String strcity = sp.getString("city" , null);
 
 
     }
@@ -76,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             d.dismiss();
         }
         if(v == btnSave){
-
+            createsaveDialog();
         }
 
     }
@@ -125,4 +137,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         d.show();
 
     }
-}
+    public void createsaveDialog () {
+
+        android.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);// מופע של בילדר
+
+        builder.setTitle("select name");
+
+        builder.setMessage("This will end the activity");
+
+        builder.setCancelable(true);
+
+        builder.setPositiveButton("Yes", new HandleAlertDialogClickListener());
+
+        builder.setNegativeButton("Not", new HandleAlertDialogClickListener());
+
+        AlertDialog dialog = builder.create();// נפעיל את הבילדר ונחזיר רפרנס ל דיאלוג
+
+        dialog.show();
+    }
+
+        class HandleAlertDialogClickListener implements DialogInterface.OnClickListener
+
+        {
+
+            public void onClick(DialogInterface dialog, int which)
+
+            {
+
+                if (which == -1) {
+                    Toast.makeText(MainActivity.this,  "Save", Toast.LENGTH_LONG).show();
+
+                    SharedPreferences.Editor editor=sp.edit();
+
+                    editor.putString("fname",etfn.getText().toString());
+                    editor.putString("lname",etln.getText().toString());
+                    editor.putString("city",etcity.getText().toString());
+                    editor.commit();
+                }
+                else if (which == -2){
+                    Toast.makeText(MainActivity.this,  "Not Save", Toast.LENGTH_LONG).show();
+                }
+            }
+
+        }
+    }
