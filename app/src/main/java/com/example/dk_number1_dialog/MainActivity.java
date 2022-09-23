@@ -141,9 +141,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         android.app.AlertDialog.Builder builder = new AlertDialog.Builder(this);// מופע של בילדר
 
-        builder.setTitle("select name");
+        builder.setTitle("select answer");
 
-        builder.setMessage("This will end the activity");
+        builder.setMessage("Are you sure you want to save?");
 
         builder.setCancelable(true);
 
